@@ -23,9 +23,9 @@ def submit(request):
         height= request.POST.get('height')
         gender= request.POST.get('gender')
         print(names , email , phone ,dob,height,weight)
-        Person.objects.create(names=names,gender=gender,email=email,phone=phone,dob=dob,weight=weight,height=height)
+        Person.objects.create(name=names,gender=gender,email=email,phone=phone,dob=dob,weight=weight,height=height)
         count =Person.objects.count()
-        print("You have{count} records")
+        print(f"You have {count} records")
     return redirect('home-page')
 
 
@@ -37,3 +37,10 @@ def people(request):
 def details(request ,id):
     person = Person.objects.get(id=id)
     return render(request, 'details.html')
+
+
+def delete(request ,id):
+    user = Person.objects.get(id=id)
+    user.delete()
+    message=f"User {user.name} deleted successfully"
+    return redirect('people-page' , {'message':message})

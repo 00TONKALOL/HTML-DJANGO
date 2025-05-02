@@ -25,4 +25,5 @@ urlpatterns = [
     path('submit', views.submit, name='submit-page'),
     path('admin/', admin.site.urls),
     path('details/<int:id>', views.details, name='details-page'),
+    path('details/<int:id>', views.delete, name='delete-page'),
 ]
