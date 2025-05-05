@@ -3,6 +3,7 @@ from itertools import count
 from django.shortcuts import render, redirect
 
 from app_101.models import Person
+from app_101.myforms import PersonForm
 
 
 # Create your views here.
@@ -44,3 +45,15 @@ def delete(request ,id):
     user.delete()
     message=f"User {user.name} deleted successfully"
     return redirect('people-page' , {'message':message})
+
+
+def add_person(request):
+    if request.method == "POST":
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('people-page')
+    else:
+        form=PersonForm()
+
+    return render(request,'forms.html' , {'form':form})
