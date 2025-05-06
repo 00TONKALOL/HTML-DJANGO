@@ -9,7 +9,7 @@ class PersonForm(forms.ModelForm):
 
     class Meta:
         model = Person
-        fields = ['name', 'email', 'phone', 'dob', 'weight', 'height', 'gender']
+        fields = ['name', 'email', 'phone', 'dob', 'weight', 'height', 'gender','salary','profile_pic']
         widgets = {
             'dob': forms.DateInput(attrs={'type': 'date', 'min':'1900-01-01', 'max':'2025-12-31'}),
         'weight': forms.NumberInput(attrs={'type': 'number', 'min': 20, 'max': 120}),

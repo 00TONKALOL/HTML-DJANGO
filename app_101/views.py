@@ -37,7 +37,7 @@ def people(request):
 
 def details(request ,id):
     person = Person.objects.get(id=id)
-    return render(request, 'details.html')
+    return render(request, 'details.html' , {'person': person})
 
 
 def delete(request ,id):
@@ -49,7 +49,7 @@ def delete(request ,id):
 
 def add_person(request):
     if request.method == "POST":
-        form = PersonForm(request.POST)
+        form = PersonForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('people-page')

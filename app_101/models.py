@@ -10,6 +10,7 @@ class Person(models.Model):
     weight = models.IntegerField(default=0)
     height = models.FloatField(default=1.6)
     gender = models.CharField(max_length=10, default="Male")
-
+    salary=models.IntegerField(default=0)
+    profile_pic=models.ImageField(upload_to="profile_pics", default="profile_pics/default.jpg")
     class Meta:
         db_table = 'people'
