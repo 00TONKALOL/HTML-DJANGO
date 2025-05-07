@@ -11,3 +11,5 @@ class PersonAdmin(admin.ModelAdmin):
     list_filter= ['gender']
     search_fields = ['name' , 'email' , 'phone' , 'dob']
 admin.site.register(Person , PersonAdmin)
+
+

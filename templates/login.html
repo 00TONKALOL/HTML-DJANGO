@@ -1,0 +1,24 @@
+{% load crispy_forms_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded mt-4">
+            <form action="{% url 'login-page' %}" method="post">
+                <button class="btn btn-dark btn-sm w-100 rounded-0">Sign In</button>
+                {% csrf_token %}
+            {{ form | crispy }}
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

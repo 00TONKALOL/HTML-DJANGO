@@ -15,3 +15,7 @@ class PersonForm(forms.ModelForm):
         'weight': forms.NumberInput(attrs={'type': 'number', 'min': 20, 'max': 120}),
         'height': forms.NumberInput(attrs={'type': 'number', 'min': 1.4, 'max': 2.5}),
         }
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Username', max_length=30)
+    password = forms.CharField(label='Password', max_length=20, widget=forms.PasswordInput())

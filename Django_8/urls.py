@@ -22,7 +22,10 @@ from Django_8 import settings
 from app_101 import views
 
 urlpatterns = [
-    path('', views.home ,name='home-page'),
+    path('login', views.login_user , name='login-page'),
+    path('signout' , views.signin , name='login-page'),
+    path('signout', views.signout , name='login-page'),
+    path('', views.home,name='home-page'),
     path('add-person', views.add_person, name='add-person-page'),
     path('people', views.people, name='people-page'),
     path('submit', views.submit, name='submit-page'),
