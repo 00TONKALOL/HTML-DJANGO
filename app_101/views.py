@@ -3,8 +3,11 @@ from itertools import count
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from app_101.models import Person
+from app_101.my_serializers import PersonSerializer
 from app_101.myforms import PersonForm, LoginForm
 
 
@@ -92,3 +95,16 @@ def signin(request):
 def signout(request):
     logout(request)
     return redirect('login-page')
+
+@api_view(['GET'])
+def api_people(request):
+    watu = Person.objects.all()
+    serializer = PersonSerializer(watu, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def single_person(request, id):
+    person = Person.objects.get(id=id)
+    serializer = PersonSerializer(person)
+    return Response(serializer.data)
+    return Response

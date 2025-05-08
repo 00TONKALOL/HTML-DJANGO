@@ -22,6 +22,8 @@ from Django_8 import settings
 from app_101 import views
 
 urlpatterns = [
+    path('api/people', views.api_people , name='api_people'),
+    path('api/person/<int:id>', views.single_person , name='single_person'),
     path('login', views.login_user , name='login-page'),
     path('signout' , views.signin , name='login-page'),
     path('signout', views.signout , name='login-page'),
