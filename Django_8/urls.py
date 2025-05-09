@@ -23,7 +23,10 @@ from app_101 import views
 
 urlpatterns = [
     path('api/people', views.api_people , name='api_people'),
-    path('api/person/<int:id>', views.single_person , name='single_person'),
+    path('api/person/add' , views.api_add , name='api_people'),
+    path('api/person/delete/<int:id>' , views.api_delete , name='api_delete'),
+    path('api/person/put/<int:id>' , views.api_update , name='api_delete'),
+    path('api/person/<int:id>', views. single_person , name='single_person'),
     path('login', views.login_user , name='login-page'),
     path('signout' , views.signin , name='login-page'),
     path('signout', views.signout , name='login-page'),

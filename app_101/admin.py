@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+import requests
 from app_101.models import Person
 
 admin.site.site_header = "Umoja Sacco"
